@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudo-Kitten</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-container">
+            <!-- Left side: Game -->
+            <div class="board-container">
+                <h1>Sudo-Kitten</h1>
+                <div class="controls">
+                    <select id="difficulty-select">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                    <select id="theme-select">
+                        <option value="orange">Orange</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                    </select>
+                </div>
+                <div id="board"></div>
+                <div class="buttons">
+                    <button onclick="newGame()">New Game</button>
+                    <button onclick="checkSolution()">Check Solution</button>
+                </div>
+            </div>
+
+            <!-- Right side: Kitten -->
+            <div class="kitten-container">
+                <div class="kitten-cage">
+                    <img id="kitten" src="kitten.jpg" alt="Kitten to rescue">
+                </div>
+                <div id="progress-text">Save the kitten: 0% complete</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="difficulty-modal" class="modal">
+        <div class="modal-content">
+            <p>Start new game with selected difficulty?</p>
+            <div class="modal-buttons">
+                <button onclick="confirmDifficultyChange()">Yes</button>
+                <button onclick="cancelDifficultyChange()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="victory-modal" class="modal">
+        <div class="modal-content">
+            <h2>Congratulations!</h2>
+            <img id="victory-kitten" src="kitten.jpg" alt="Rescued Kitten">
+            <p>You solved the puzzle and rescued the kitten!</p>
+            <button onclick="closeVictoryModal()">Play Again</button>
+        </div>
+    </div>
+    <!--DEVELOPER Button for instant solve-->
+    <button onclick="revealSolution()" class="dev-button">Solve</button>
+    <script src="script.js"></script>
+</body>
+</html>

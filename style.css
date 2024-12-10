@@ -1,0 +1,316 @@
+/* Theme Variables */
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #ffa07a;
+    --grid-color: #ff7f50;
+    --cell-bg: #2a2a2a;
+    --cell-hover: #3a3a3a;
+    --button-bg: #ff7f50;
+    --button-text: #1a1a1a;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.4s ease;
+    user-select: none;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+}
+
+/* Layout Containers */
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+}
+
+/* Board Styles */
+.board-container {
+    text-align: center;
+}
+
+.board-container h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 0 0 5px var(--grid-color);
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(9, 50px);
+    grid-template-rows: repeat(9, 50px);
+    background-color: var(--grid-color);
+    border: 2px solid var(--grid-color);
+    margin: 20px auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* Cell Styles */
+.cell {
+    background-color: var(--cell-bg);
+    border: 1px solid var(--grid-color);
+}
+
+.cell:nth-child(3n) {
+    border-right: 2px solid var(--grid-color);
+}
+
+.cell:nth-child(9n) {
+    border-right: 1px solid var(--grid-color);
+}
+
+#board > .cell:nth-child(n+19):nth-child(-n+27),
+#board > .cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid var(--grid-color);
+}
+
+/* Input Styles */
+.cell input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    background-color: var(--cell-bg);
+    color: var(--text-color);
+}
+
+.cell input:focus {
+    background-color: var(--cell-hover);
+    outline: none;
+}
+
+.initial {
+    background-color: var(--cell-hover);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+select {
+    /* Keep existing styles */
+    width: 120px;
+    padding: 8px 25px 8px 15px; /* Adjust padding: top right bottom left */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    
+    /* Centering */
+    text-align: center;
+    text-align-last: center;
+    -moz-text-align-last: center;
+    
+    /* Arrow styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,<svg width='12' height='12'><path fill='%23ff7f50' d='M0 3l6 6 6-6z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 8px) center;
+    
+    /* Colors */
+    background-color: var(--cell-bg);
+    color: var(--text-color);
+}
+
+
+select option {
+    text-align: center;
+    background-color: var(--cell-bg);
+    color: var(--text-color);
+    padding: 10px;
+}
+
+/* Buttons */
+.buttons {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 16px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--grid-color);
+}
+
+/* Kitten Container */
+.kitten-container {
+    width: 350px;
+}
+
+.kitten-cage {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 2px solid var(--grid-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--grid-color);
+}
+
+#kitten {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(20px);
+    transition: filter 0.5s ease;
+}
+
+#progress-text {
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    filter: none;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    text-align: center;
+    background: linear-gradient(145deg, var(--cell-bg), var(--bg-color));
+    border: 2px solid var(--grid-color);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: modalPop 0.4s ease-out forwards;
+}
+
+.modal-content h2 {
+    margin-bottom: 25px;
+}
+
+.modal-content p {
+    margin: 25px 0;
+}
+
+.modal-content button {
+    margin-top: 25px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+#victory-kitten {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid var(--grid-color);
+    margin: 25px 0;
+}
+
+#difficulty-modal .modal-content {
+    padding: 40px;
+}
+
+#difficulty-modal p {
+    margin-bottom: 15px;
+}
+
+/* Animations */
+@keyframes modalPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    .game-container {
+        flex-direction: column;
+    }
+    
+    .kitten-container {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    #board {
+        transform: scale(0.8);
+        transform-origin: center;
+    }
+    
+    .buttons button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* User Select Prevention */
+h1, p, button, select, input, #progress-text, .modal-content {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.blur {
+    filter: blur(5px) !important;
+    pointer-events: none;
+}
+
+/*DEVELOPER*/
+.dev-button {
+    display: none;
+}
