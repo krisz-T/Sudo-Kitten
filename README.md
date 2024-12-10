@@ -39,7 +39,7 @@ const kittenImages = [
     ...
 ];
 ```
-##Modifying Themes
+## Modifying Themes
 Edit the `themes` object in the `applyTheme` function to create or modify themes:
 ```javascript
 const themes = {
