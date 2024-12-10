@@ -27,6 +27,7 @@ Sudo-Kitten is a Sudoku-inspired puzzle game with an adorable twist! Solve Sudok
 ## Installation
 1. Clone the repository or download the source files.
 2. Open `index.html` in any modern web browser to start playing.
+3. Or visit https://sudo-kitten.bitmaker.ro/
 
 ## Customization
 ### Adding Kitten Images

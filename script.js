@@ -13,6 +13,7 @@ const kittenImages = [
     'kittens/kitten8.jpg',
     'kittens/kitten9.jpg',
     'kittens/kitten10.jpg',
+    'kittens/impostor.jpg'
 ];
 
 function setRandomKitten() {
