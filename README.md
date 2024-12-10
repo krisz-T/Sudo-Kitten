@@ -39,3 +39,15 @@ const kittenImages = [
     'kittens/kitten3.jpg',
     ...
 ];
+```
+## Modifying Themes
+Edit the `themes` object in the `applyTheme` function to create or modify themes:
+```javascript
+const themes = {
+    yourThemeName: {
+        bgColor: '#yourBackgroundColor',
+        textColor: '#yourTextColor',
+        ...
+    }
+};
+```
