@@ -342,6 +342,15 @@ function applyTheme(theme) {
             buttonBg: '#404040',
             buttonText: '#ffffff'
         },
+        pink: {
+            bgColor: '#1a1a1a',
+            textColor: '#FFB6C1',
+            gridColor: '#FF69B4',
+            cellBg: '#2a2a2a',
+            cellHover: '#3a3a3a',
+            buttonBg: '#FF69B4',
+            buttonText: '#1a1a1a'
+        },
         light: {
             bgColor: '#ffffff',
             textColor: '#333333',
