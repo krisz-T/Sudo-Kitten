@@ -50,7 +50,3 @@ const themes = {
     }
 };
 ```
-##Developer Notes
-- **Confetti Effects**: The confetti animation is implemented with pure CSS and JavaScript for a lightweight and customizable effect.
-- **Grid Generation**: The Sudoku grid is generated with valid solutions using a custom backtracking algorithm.
-- **Progress Tracking**: The kitten's blur is updated based on the percentage of correctly filled cells.
