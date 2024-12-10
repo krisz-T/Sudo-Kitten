@@ -38,3 +38,19 @@ const kittenImages = [
     'kittens/kitten3.jpg',
     ...
 ];
+```
+##Modifying Themes
+Edit the `themes` object in the `applyTheme` function to create or modify themes:
+```javascript
+const themes = {
+    yourThemeName: {
+        bgColor: '#yourBackgroundColor',
+        textColor: '#yourTextColor',
+        ...
+    }
+};
+```
+##Developer Notes
+- **Confetti Effects**: The confetti animation is implemented with pure CSS and JavaScript for a lightweight and customizable effect.
+- **Grid Generation**: The Sudoku grid is generated with valid solutions using a custom backtracking algorithm.
+- **Progress Tracking**: The kitten's blur is updated based on the percentage of correctly filled cells.
